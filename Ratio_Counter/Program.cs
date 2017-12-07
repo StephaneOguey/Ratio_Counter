@@ -10,6 +10,10 @@ namespace Ratio_Counter
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Entrez votre Pseudo :");
+            string strPseudo = Console.ReadLine();
+
+            Console.WriteLine("Avez-vous jouez une nouvelle partie [o/n]");
         }
     }
 }
