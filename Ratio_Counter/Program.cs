@@ -14,7 +14,8 @@ namespace Ratio_Counter
 
             Console.WriteLine("Pour calculer votre ratio Kill / Mort, tapez [1] !");
             Console.WriteLine("Pour calculer votre ratio de Partie Gagnée / Partie Perdu, tapez [2] !");
-            Console.WriteLine("Pour quitter le programme, tapez [3] !");
+            Console.WriteLine("Pour voir le récapitulatif, tapez [3] !");
+            Console.WriteLine("Pour quitter le programme, tapez [4] !");
 
             cChoixProg = Console.ReadKey().KeyChar;
 
@@ -162,6 +163,10 @@ namespace Ratio_Counter
             }
             while (!(cQuitteProg == 'o'));
             return dblRatio_Gagnée_Perdue;
+        }
+        static void Recap()
+        {
+            Console.WriteLine("Votre Ratio de Kill / Mort est de {0}",);
         }
     }
 }
