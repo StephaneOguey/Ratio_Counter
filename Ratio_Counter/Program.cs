@@ -35,9 +35,11 @@ namespace Ratio_Counter
         static double Ratio_Kill_Mort()
         {
             char cNouvPartie;
+            double dblRatio = 0;
+            double dblNbKill = 0;
+            double dblNbMort = 0;
 
-
-            Console.WriteLine("Entrez votre Pseudo :");
+            Console.WriteLine("\nEntrez votre Pseudo :");
             string strPseudo = Console.ReadLine();
 
             Console.WriteLine("Avez-vous jouez une nouvelle partie [o/n]");
@@ -45,13 +47,21 @@ namespace Ratio_Counter
 
             if (cNouvPartie == 'o')
             {
-                Console.WriteLine("Combien de kill avez-vous fait ???");
+                Console.WriteLine("\nCombien de kill avez-vous fait ???");
                 string strNbKillMatch = Console.ReadLine();
                 double dblNbKillMatch = Convert.ToDouble(strNbKillMatch);
+                dblNbKill += dblNbKillMatch;
 
+                Console.WriteLine("\nCombien de mort avez-vous fait ???");
+                string strNbMortMatch = Console.ReadLine();
+                double dblNbMortMatch = Convert.ToDouble(strNbMortMatch);
+                dblNbMort += dblNbMortMatch;
 
+                dblRatio = dblNbKill / dblNbMort;
+
+                Console.Clear();
             }
-            return ();
+            return 0;
         }
     }
 }
