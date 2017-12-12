@@ -11,34 +11,47 @@ namespace Ratio_Counter
         static void Main(string[] args)
         {
             char cChoixProg;
-
-            Console.WriteLine("Pour calculer votre ratio Kill / Mort, tapez [1] !");
-            Console.WriteLine("Pour calculer votre ratio de Partie Gagnée / Partie Perdu, tapez [2] !");
-            Console.WriteLine("Pour voir le récapitulatif, tapez [3] !");
-            Console.WriteLine("Pour quitter le programme, tapez [4] !");
-
-            cChoixProg = Console.ReadKey().KeyChar;
-
-            switch (cChoixProg)
+            char cQuitteProg;
+            do
             {
-                case '1':
-                    Ratio_Kill_Mort();
-                    break;
+                Console.WriteLine("Pour calculer votre ratio Kill / Mort, tapez [1] !");
+                Console.WriteLine("Pour calculer votre ratio de Partie Gagnée / Partie Perdu, tapez [2] !");
+                Console.WriteLine("Pour voir le récapitulatif, tapez [3] !");
+                Console.WriteLine("Pour quitter le programme, tapez [4] !");
 
-                case '2':
-                    Ratio_Partie_Gagnée_Perdue();
-                    break;
+                cChoixProg = Console.ReadKey().KeyChar;
 
-                case '3':
-                    
-                    break;
+                switch (cChoixProg)
+                {
+                    case '1':
+                        Ratio_Kill_Mort();
+                        break;
+
+                    case '2':
+                        Ratio_Manche_Gagnée_Perdue();
+                        break;
+
+                    case '3':
+                        Recap();
+                        break;
+                }
+                Console.WriteLine("Voulez-vous quitter le programme de calcul de Ratio Kill/Mort [o/n] ???");
+                cQuitteProg = Console.ReadKey().KeyChar;
+
+                if (cQuitteProg == 'o')
+                {
+                    Console.WriteLine("Aurevoir...");
+                    System.Threading.Thread.Sleep(5000);
+                    Environment.Exit(0);
+                }
+                Console.Clear();
             }
-            Console.Clear();
+            while (!(cQuitteProg == 0));
         }
         static double Ratio_Kill_Mort()
         {
             char cNouvPartie;
-            char cQuitteProg = 'n';
+            char cQuitteFonc = 'n';
             double dblRatio_Kill_Mort = 0;
             double dblNbKill = 0;
             double dblNbMort = 0;
@@ -92,21 +105,21 @@ namespace Ratio_Counter
                 }
                 if (cNouvPartie == 'n')
                 {
-                    Console.WriteLine("Voulez-vous quitter le programme de calcul de Ratio Kill/Mort [o/n] ???");
-                    cQuitteProg = Console.ReadKey().KeyChar;
+                    Console.WriteLine("\nVoulez-vous quitter le programme de calcul de Ratio Kill/Mort [o/n] ???");
+                    cQuitteFonc = Console.ReadKey().KeyChar;
                 }
             }
-            while (!(cQuitteProg == 'o'));
+            while (!(cQuitteFonc == 'o'));
 
             return dblRatio_Kill_Mort;
         }
-        static double Ratio_Partie_Gagnée_Perdue()
+        static double Ratio_Manche_Gagnée_Perdue()
         {
             char cNouvPartie;
-            char cQuitteProg = 'n';
+            char cQuitteFonc = 'n';
             double dblRatio_Gagnée_Perdue = 0;
             double dblNbGagnée = 0;
-            double dblPerdue = 0;
+            double dblNbPerdue = 0;
 
             Console.WriteLine("\nEntrez votre Pseudo :");
             string strPseudo = Console.ReadLine();
@@ -116,17 +129,17 @@ namespace Ratio_Counter
 
             if (cNouvPartie == 'o')
             {
-                Console.WriteLine("\nCombien de Partie Gagnée avez-vous fait ???");
+                Console.WriteLine("\nCombien de Manche Gagnée avez-vous fait ???");
                 string strNbGagnéeMatch = Console.ReadLine();
                 double dblNbGagnéeMatch = Convert.ToDouble(strNbGagnéeMatch);
                 dblNbGagnée += dblNbGagnéeMatch;
 
-                Console.WriteLine("\nCombien de Partie Perdue avez-vous fait ???");
+                Console.WriteLine("\nCombien de Manche Perdue avez-vous fait ???");
                 string strNbPerdueMatch = Console.ReadLine();
                 double dblNbPerdueMatch = Convert.ToDouble(strNbPerdueMatch);
-                dblPerdue += dblNbPerdueMatch;
+                dblNbPerdue += dblNbPerdueMatch;
 
-                dblRatio_Gagnée_Perdue = dblNbGagnée / dblPerdue;
+                dblRatio_Gagnée_Perdue = dblNbGagnée / dblNbPerdue;
 
                 Console.Clear();
             }
@@ -141,32 +154,37 @@ namespace Ratio_Counter
 
                 if (cNouvPartie == 'o')
                 {
-                    Console.WriteLine("\nCombien de Partie Gagnée avez-vous fait ???");
+                    Console.WriteLine("\nCombien de Manche Gagnée avez-vous fait ???");
                     string strNbGagnéeMatch = Console.ReadLine();
                     double dblNbGagnéeMatch = Convert.ToDouble(strNbGagnéeMatch);
                     dblNbGagnée += dblNbGagnéeMatch;
 
-                    Console.WriteLine("\nCombien de Partie Perdue avez-vous fait ???");
+                    Console.WriteLine("\nCombien de Manche Perdue avez-vous fait ???");
                     string strNbPerdueMatch = Console.ReadLine();
                     double dblNbPerdueMatch = Convert.ToDouble(strNbPerdueMatch);
-                    dblPerdue += dblNbPerdueMatch;
+                    dblNbPerdue += dblNbPerdueMatch;
 
-                    dblRatio_Gagnée_Perdue = dblNbGagnée / dblPerdue;
+                    dblRatio_Gagnée_Perdue = dblNbGagnée / dblNbPerdue;
 
                     Console.Clear();
                 }
                 if (cNouvPartie == 'n')
                 {
-                    Console.WriteLine("Voulez-vous quitter le programme de calcul de Ratio Gagnée/Perdue [o/n] ???");
-                    cQuitteProg = Console.ReadKey().KeyChar;
+                    Console.WriteLine("\nVoulez-vous quitter le programme de calcul de Ratio Gagnée/Perdue [o/n] ???");
+                    cQuitteFonc = Console.ReadKey().KeyChar;
                 }
             }
-            while (!(cQuitteProg == 'o'));
+            while (!(cQuitteFonc == 'o'));
             return dblRatio_Gagnée_Perdue;
         }
         static void Recap()
         {
-            Console.WriteLine("Votre Ratio de Kill / Mort est de {0}",);
+            Console.WriteLine("\n=======================================================");
+            Console.WriteLine("Votre Ratio de Kill / Mort est de {0}",Ratio_Kill_Mort());
+            Console.WriteLine("=======================================================");
+            Console.WriteLine("Votre Ratio Manche Gagnée / Manche Perdue est de {0}",Ratio_Manche_Gagnée_Perdue());
+            Console.WriteLine("=======================================================");
+            Console.ReadLine();
         }
     }
 }
