@@ -10,6 +10,10 @@ namespace Ratio_Counter
     {
         static void Main(string[] args)
         {
+
+        }
+        static double Ratio_Kill_Mort()
+        {
             char cNouvPartie;
 
 
