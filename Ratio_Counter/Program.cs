@@ -13,7 +13,8 @@ namespace Ratio_Counter
             char cChoixProg;
 
             Console.WriteLine("Pour calculer votre ratio Kill / Mort, tapez [1] !");
-            Console.WriteLine("Pour calculer votre ratio de Partie Gagnée / Partie Perdu, tapez [2] ");
+            Console.WriteLine("Pour calculer votre ratio de Partie Gagnée / Partie Perdu, tapez [2] !");
+            Console.WriteLine("Pour quitter le programme, tapez [3] !");
 
             cChoixProg = Console.ReadKey().KeyChar;
 
@@ -27,15 +28,17 @@ namespace Ratio_Counter
 
                     break;
 
-                default:
+                case '3':
                     
                     break;
             }
+            Console.Clear();
         }
         static double Ratio_Kill_Mort()
         {
             char cNouvPartie;
-            double dblRatio = 0;
+            char cQuitteProg = 'n';
+            double dblRatio_Kill_Mort = 0;
             double dblNbKill = 0;
             double dblNbMort = 0;
 
@@ -57,11 +60,44 @@ namespace Ratio_Counter
                 double dblNbMortMatch = Convert.ToDouble(strNbMortMatch);
                 dblNbMort += dblNbMortMatch;
 
-                dblRatio = dblNbKill / dblNbMort;
+                dblRatio_Kill_Mort = dblNbKill / dblNbMort;
 
                 Console.Clear();
             }
-            return 0;
+            do
+            {
+                Console.WriteLine("Votre Ratio de la journée est de {0}",dblRatio_Kill_Mort);
+                Console.WriteLine("\nPressez une touche pour continuer...");
+                Console.ReadKey();
+
+                Console.WriteLine("Avez-vous jouez une nouvelle partie [o/n]");
+                cNouvPartie = Console.ReadKey().KeyChar;
+
+                if (cNouvPartie == 'o')
+                {
+                    Console.WriteLine("\nCombien de kill avez-vous fait ???");
+                    string strNbKillMatch = Console.ReadLine();
+                    double dblNbKillMatch = Convert.ToDouble(strNbKillMatch);
+                    dblNbKill += dblNbKillMatch;
+
+                    Console.WriteLine("\nCombien de mort avez-vous fait ???");
+                    string strNbMortMatch = Console.ReadLine();
+                    double dblNbMortMatch = Convert.ToDouble(strNbMortMatch);
+                    dblNbMort += dblNbMortMatch;
+
+                    dblRatio_Kill_Mort = dblNbKill / dblNbMort;
+
+                    Console.Clear();
+                }
+                if (cNouvPartie == 'n')
+                {
+                    Console.WriteLine("Voulez-vous quitter le programme de calcul de Ratio Kill/Mort [o/n] ???");
+                    cQuitteProg = Console.ReadKey().KeyChar;
+                }
+            }
+            while (!(cQuitteProg == 'o'));
+
+            return dblRatio_Kill_Mort;
         }
     }
 }
