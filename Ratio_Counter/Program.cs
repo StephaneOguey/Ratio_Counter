@@ -20,13 +20,21 @@ namespace Ratio_Counter
             char cChoixProg;
             char cQuitteProg = 'n';
 
+            Console.WriteLine("**********************************");
+            Console.WriteLine("Veuillez entrez votre Pseudo...");
+            Console.WriteLine("**********************************");
+            strPseudo = Console.ReadLine();
 
             do
             {
+                Console.Clear();
+
+                Console.WriteLine("**********************************************************************");
                 Console.WriteLine("Pour calculer votre ratio Kill / Mort, tapez [1] !");
                 Console.WriteLine("Pour calculer votre ratio de Partie Gagnée / Partie Perdu, tapez [2] !");
                 Console.WriteLine("Pour voir le récapitulatif, tapez [3] !");
                 Console.WriteLine("Pour quitter le programme, tapez [4] !");
+                Console.WriteLine("**********************************************************************");
 
                 cChoixProg = Console.ReadKey().KeyChar;
 
@@ -35,6 +43,9 @@ namespace Ratio_Counter
                     case '1':
                         char cNouvPartie;
                         char cQuitteFonc = 'n';
+
+                        Console.Clear();
+                        Console.WriteLine("*******************************************************");
 
                         Console.WriteLine("\nAvez-vous jouez une nouvelle partie [o/n]");
                         cNouvPartie = Console.ReadKey().KeyChar;
@@ -57,11 +68,11 @@ namespace Ratio_Counter
                         }
                         do
                         {
-                            Console.WriteLine("\nVotre Ratio de la journée est de {0}", dblRatio_Kill_Mort);
+                            Console.WriteLine("\nVotre ratio Kill / Mort est de {0}", dblRatio_Kill_Mort);
                             Console.WriteLine("\nPressez une touche pour continuer...");
                             Console.ReadKey();
 
-                            Console.WriteLine("Avez-vous jouez une nouvelle partie [o/n]");
+                            Console.WriteLine("\nAvez-vous jouez une nouvelle partie [o/n]");
                             cNouvPartie = Console.ReadKey().KeyChar;
 
                             if (cNouvPartie == 'o')
@@ -96,9 +107,8 @@ namespace Ratio_Counter
                         cNouvPartie = 'n';
                         cQuitteFonc = 'n';
 
-
-                        Console.WriteLine("\nEntrez votre Pseudo :");
-                        strPseudo = Console.ReadLine();
+                        Console.Clear();
+                        Console.WriteLine("*******************************************************");
 
                         Console.WriteLine("\nAvez-vous jouez une nouvelle partie [o/n]");
                         cNouvPartie = Console.ReadKey().KeyChar;
@@ -118,10 +128,11 @@ namespace Ratio_Counter
                             dblRatio_Gagnée_Perdue = (double) iNbGagnée / iNbPerdue;
 
                             Console.Clear();
+                            Console.WriteLine("*******************************************************");
                         }
                         do
                         {
-                            Console.WriteLine("\nVotre Ratio de la journée est de {0}", dblRatio_Gagnée_Perdue);
+                            Console.WriteLine("\nVotre ratio Manche Gagnée / Manche Perdue est de {0}", dblRatio_Gagnée_Perdue);
                             Console.WriteLine("\nPressez une touche pour continuer...");
                             Console.ReadKey();
 
@@ -155,23 +166,32 @@ namespace Ratio_Counter
                         break;
 
                     case '3':
-                        Console.WriteLine("\n=======================================================");
+                        Console.Clear();
+
+                        Console.WriteLine("*******************************************************");
+                        Console.WriteLine("{0},",strPseudo);
+                        Console.WriteLine("*******************************************************");
                         Console.WriteLine("Votre Ratio de Kill / Mort est de {0}", dblRatio_Kill_Mort);
                         Console.WriteLine("=======================================================");
                         Console.WriteLine("Votre Ratio Manche Gagnée / Manche Perdue est de {0}", dblRatio_Gagnée_Perdue);
-                        Console.WriteLine("=======================================================");
+                        Console.WriteLine("*******************************************************");
                         Console.WriteLine("\nPressez une touche pour continuer...");
                         Console.ReadKey();
                         Console.Clear();
                         break;
                     case '4':
+                        Console.Clear();
+                        Console.WriteLine("*******************************************************");
                         Console.WriteLine("\nVoulez-vous vraiment quitter le programme [o/n] ???");
                         cQuitteProg = Console.ReadKey().KeyChar;
 
                         if (cQuitteProg == 'o')
                         {
-                            Console.WriteLine("\nAurevoir...");
-                            System.Threading.Thread.Sleep(5000);
+                            Console.Clear();
+                            Console.WriteLine("*****************************************");
+                            Console.WriteLine("\n***************Aurevoir...***************");
+                            Console.WriteLine("\n*****************************************");
+                            System.Threading.Thread.Sleep(2000);
                             Environment.Exit(0);
                         }
                         Console.Clear();
