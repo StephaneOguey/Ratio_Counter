@@ -29,7 +29,7 @@ namespace Ratio_Counter
             int iNbMort = 0;
             char cChoixProg;
             char cQuitteProg = 'n';
-
+            Console.SetWindowSize(200, 100);
             Console.WriteLine(@" ██▀███   ▄▄▄     ▄▄▄█████▓ ██▓ ▒█████      ▄████▄   ▒█████   █    ██  ███▄    █ ▄▄▄█████▓▓█████  ██▀███  ");
             Console.WriteLine(@"▓██ ▒ ██▒▒████▄   ▓  ██▒ ▓▒▓██▒▒██▒  ██▒   ▒██▀ ▀█  ▒██▒  ██▒ ██  ▓██▒ ██ ▀█   █ ▓  ██▒ ▓▒▓█   ▀ ▓██ ▒ ██▒");
             Console.WriteLine(@"▓██ ░▄█ ▒▒██  ▀█▄ ▒ ▓██░ ▒░▒██▒▒██░  ██▒   ▒▓█    ▄ ▒██░  ██▒▓██  ▒██░▓██  ▀█ ██▒▒ ▓██░ ▒░▒███   ▓██ ░▄█ ▒");
