@@ -52,11 +52,14 @@ namespace Ratio_Counter
 
                         if (cNouvPartie == 'o')
                         {
+                            Console.Clear();
+                            Console.WriteLine("*******************************************************");
                             Console.WriteLine("\nCombien de kill avez-vous fait ???");
                             string strNbKillMatch = Console.ReadLine();
                             int iNbKillMatch = Convert.ToInt32(strNbKillMatch);
                             iNbKill += iNbKillMatch;
 
+                            Console.WriteLine("*******************************************************");
                             Console.WriteLine("\nCombien de mort avez-vous fait ???");
                             string strNbMortMatch = Console.ReadLine();
                             int iNbMortMatch = Convert.ToInt32(strNbMortMatch);
@@ -68,20 +71,27 @@ namespace Ratio_Counter
                         }
                         do
                         {
+                            Console.Clear();
+                            Console.WriteLine("*******************************************************");
                             Console.WriteLine("\nVotre ratio Kill / Mort est de {0}", dblRatio_Kill_Mort);
                             Console.WriteLine("\nPressez une touche pour continuer...");
                             Console.ReadKey();
 
+                            Console.Clear();
+                            Console.WriteLine("*******************************************************");
                             Console.WriteLine("\nAvez-vous jouez une nouvelle partie [o/n]");
                             cNouvPartie = Console.ReadKey().KeyChar;
 
                             if (cNouvPartie == 'o')
                             {
+                                Console.Clear();
+                                Console.WriteLine("*******************************************************");
                                 Console.WriteLine("\nCombien de kill avez-vous fait ???");
                                 string strNbKillMatch = Console.ReadLine();
                                 int iNbKillMatch = Convert.ToInt32(strNbKillMatch);
                                 iNbKill += iNbKillMatch;
 
+                                Console.WriteLine("*******************************************************");
                                 Console.WriteLine("\nCombien de mort avez-vous fait ???");
                                 string strNbMortMatch = Console.ReadLine();
                                 int iNbMortMatch = Convert.ToInt32(strNbMortMatch);
@@ -93,6 +103,8 @@ namespace Ratio_Counter
                             }
                             if (cNouvPartie == 'n')
                             {
+                                Console.Clear();
+                                Console.WriteLine("*******************************************************");
                                 Console.WriteLine("\nVoulez-vous quitter le programme de calcul de Ratio Kill/Mort [o/n] ???");
                                 cQuitteFonc = Console.ReadKey().KeyChar;
                             }
@@ -109,17 +121,19 @@ namespace Ratio_Counter
 
                         Console.Clear();
                         Console.WriteLine("*******************************************************");
-
                         Console.WriteLine("\nAvez-vous jouez une nouvelle partie [o/n]");
                         cNouvPartie = Console.ReadKey().KeyChar;
 
                         if (cNouvPartie == 'o')
                         {
+                            Console.Clear();
+                            Console.WriteLine("*******************************************************");
                             Console.WriteLine("\nCombien de Manche Gagnée avez-vous fait ???");
                             string strNbGagnéeMatch = Console.ReadLine();
                             int iNbGagnéeMatch = Convert.ToInt32(strNbGagnéeMatch);
                             iNbGagnée += iNbGagnéeMatch;
 
+                            Console.WriteLine("*******************************************************");
                             Console.WriteLine("\nCombien de Manche Perdue avez-vous fait ???");
                             string strNbPerdueMatch = Console.ReadLine();
                             int iNbPerdueMatch = Convert.ToInt32(strNbPerdueMatch);
@@ -128,24 +142,30 @@ namespace Ratio_Counter
                             dblRatio_Gagnée_Perdue = (double) iNbGagnée / iNbPerdue;
 
                             Console.Clear();
-                            Console.WriteLine("*******************************************************");
                         }
                         do
                         {
+                            Console.Clear();
+                            Console.WriteLine("*******************************************************");
                             Console.WriteLine("\nVotre ratio Manche Gagnée / Manche Perdue est de {0}", dblRatio_Gagnée_Perdue);
                             Console.WriteLine("\nPressez une touche pour continuer...");
                             Console.ReadKey();
 
+                            Console.Clear();
+                            Console.WriteLine("*******************************************************");
                             Console.WriteLine("\nAvez-vous jouez une nouvelle partie [o/n]");
                             cNouvPartie = Console.ReadKey().KeyChar;
 
                             if (cNouvPartie == 'o')
                             {
+                                Console.Clear();
+                                Console.WriteLine("*******************************************************");
                                 Console.WriteLine("\nCombien de Manche Gagnée avez-vous fait ???");
                                 string strNbGagnéeMatch = Console.ReadLine();
                                 int iNbGagnéeMatch = Convert.ToInt32(strNbGagnéeMatch);
                                 iNbGagnée += iNbGagnéeMatch;
 
+                                Console.WriteLine("*******************************************************");
                                 Console.WriteLine("\nCombien de Manche Perdue avez-vous fait ???");
                                 string strNbPerdueMatch = Console.ReadLine();
                                 int iNbPerdueMatch = Convert.ToInt32(strNbPerdueMatch);
@@ -157,6 +177,8 @@ namespace Ratio_Counter
                             }
                             if (cNouvPartie == 'n')
                             {
+                                Console.Clear();
+                                Console.WriteLine("*******************************************************");
                                 Console.WriteLine("\nVoulez-vous quitter le programme de calcul de Ratio Gagnée/Perdue [o/n] ???");
                                 cQuitteFonc = Console.ReadKey().KeyChar;
                             }
@@ -170,6 +192,14 @@ namespace Ratio_Counter
 
                         Console.WriteLine("*******************************************************");
                         Console.WriteLine("{0},",strPseudo);
+                        Console.WriteLine("*******************************************************");
+                        Console.WriteLine("Nombre de Kill : {0}", iNbKill);
+                        Console.WriteLine("=======================================================");
+                        Console.WriteLine("Nombre de Mort : {0}", iNbMort);
+                        Console.WriteLine("=======================================================");
+                        Console.WriteLine("Nombre de Manche Gagnée : {0}", iNbGagnée);
+                        Console.WriteLine("=======================================================");
+                        Console.WriteLine("Nombre de Manche Perdue : {0}", iNbPerdue);
                         Console.WriteLine("*******************************************************");
                         Console.WriteLine("Votre Ratio de Kill / Mort est de {0}", dblRatio_Kill_Mort);
                         Console.WriteLine("=======================================================");
